@@ -15,7 +15,7 @@ namespace MarketMan.Celeb.UnitTest
         {
             var mockLogger = new Mock<ILogger<CelebJsonFileRepository>>();
             IRepository repo = new CelebJsonFileRepository(mockLogger.Object);
-            repo.Add(new Business.Model.CelebInfo() { Key = 1 });
+            repo.Add(new Entities.CelebInfo() { Key = 1 });
             Assert.IsTrue(repo.GetAll().Count == 1); 
         }
 

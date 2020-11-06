@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MarketMan.Celeb.Business;
-using MarketMan.Celeb.Business.Core;
-using MarketMan.Celeb.Business.Model;
+using MarketMan.Celeb.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 

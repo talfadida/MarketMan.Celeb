@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MarketMan.Celeb.Business.Model;
+using MarketMan.Celeb.Entities;
 using MarketMan.Celeb.Business.Utils;
 using Microsoft.Extensions.Logging;
 

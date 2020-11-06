@@ -1,8 +1,5 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Text;
-
-namespace MarketMan.Celeb.Business.Model
+﻿
+namespace MarketMan.Celeb.Entities
 {
 
     public class CelebInfo

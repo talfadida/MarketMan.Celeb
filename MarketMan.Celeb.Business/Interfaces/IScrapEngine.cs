@@ -1,4 +1,4 @@
-﻿using MarketMan.Celeb.Business.Model;
+﻿using MarketMan.Celeb.Entities;
 
 namespace MarketMan.Celeb.Business
 {

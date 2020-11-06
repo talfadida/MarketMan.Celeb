@@ -23,7 +23,16 @@ namespace MarketMan.Celeb.WepApi
         {         
             services.AddSingleton<IRepository, CelebJsonFileRepository>();
             services.AddSingleton<IScrapEngine, ImdbScrapEngine>();
-            
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:58536")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod(); 
+                    });
+            });
             services.AddControllers();
         }
 
@@ -34,6 +43,8 @@ namespace MarketMan.Celeb.WepApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors();
+            
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

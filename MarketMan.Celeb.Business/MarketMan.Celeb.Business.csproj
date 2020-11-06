@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarketMan.Celeb.Entities\MarketMan.Celeb.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

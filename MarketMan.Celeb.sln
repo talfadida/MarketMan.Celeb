@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMan.Celeb.Business", "MarketMan.Celeb.Business\MarketMan.Celeb.Business.csproj", "{4186A7BB-1F96-4C80-B2F7-759851A37B45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMan.Celeb.Business", "MarketMan.Celeb.Business\MarketMan.Celeb.Business.csproj", "{4186A7BB-1F96-4C80-B2F7-759851A37B45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMan.Celeb.WepApi", "MarketMan.Celeb.WepApi\MarketMan.Celeb.WepApi.csproj", "{CAAAC59C-8969-4FC9-90E1-594005F1A75D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMan.Celeb.WepApi", "MarketMan.Celeb.WepApi\MarketMan.Celeb.WepApi.csproj", "{CAAAC59C-8969-4FC9-90E1-594005F1A75D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMan.Celeb.UnitTest", "MarketMan.Celeb.UnitTest\MarketMan.Celeb.UnitTest.csproj", "{FCCF60B4-25E9-4F05-A123-62143E8D58F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMan.Celeb.UnitTest", "MarketMan.Celeb.UnitTest\MarketMan.Celeb.UnitTest.csproj", "{FCCF60B4-25E9-4F05-A123-62143E8D58F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketMan.Celeb.ReactClient", "MarketMan.Celeb.ReactClient\MarketMan.Celeb.ReactClient.csproj", "{08EF1204-6A47-43FA-994C-25C71C389222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketMan.Celeb.Entities", "MarketMan.Celeb.Entities\MarketMan.Celeb.Entities.csproj", "{D77343E4-ADB0-4A11-B3F0-00F681990022}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{FCCF60B4-25E9-4F05-A123-62143E8D58F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCCF60B4-25E9-4F05-A123-62143E8D58F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCCF60B4-25E9-4F05-A123-62143E8D58F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08EF1204-6A47-43FA-994C-25C71C389222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EF1204-6A47-43FA-994C-25C71C389222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EF1204-6A47-43FA-994C-25C71C389222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EF1204-6A47-43FA-994C-25C71C389222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77343E4-ADB0-4A11-B3F0-00F681990022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77343E4-ADB0-4A11-B3F0-00F681990022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77343E4-ADB0-4A11-B3F0-00F681990022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77343E4-ADB0-4A11-B3F0-00F681990022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

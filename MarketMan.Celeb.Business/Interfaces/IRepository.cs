@@ -1,4 +1,4 @@
-﻿using MarketMan.Celeb.Business.Model;
+﻿using MarketMan.Celeb.Entities;
 using System.Collections.Generic;
 
 namespace MarketMan.Celeb.Business

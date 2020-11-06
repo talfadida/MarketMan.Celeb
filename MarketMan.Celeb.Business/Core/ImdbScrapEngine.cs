@@ -1,5 +1,5 @@
 ﻿using HtmlAgilityPack;
-using MarketMan.Celeb.Business.Model;
+using MarketMan.Celeb.Entities;
 using MarketMan.Celeb.Business.Utils;
 using Microsoft.Extensions.Logging;
 using System;
