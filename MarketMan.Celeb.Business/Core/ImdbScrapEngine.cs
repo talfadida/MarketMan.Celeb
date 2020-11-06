@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace MarketMan.Celeb.Business.Core
 {
+    //moving to actor model
     public class ImdbScrapEngine: IScrapEngine
     {
         
