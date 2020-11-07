@@ -25,8 +25,4 @@
     <ProjectReference Include="..\MarketMan.Celeb.Entities\MarketMan.Celeb.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ActorModel\" />
-  </ItemGroup>
-
 </Project>
