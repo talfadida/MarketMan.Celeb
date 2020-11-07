@@ -5,10 +5,14 @@ using System.Linq;
 using MarketMan.Celeb.Entities;
 using MarketMan.Celeb.Business.Utils;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace MarketMan.Celeb.Business.Core
 {
-    public class CelebJsonFileRepository : IRepository
+
+ 
+
+    public class CelebJsonFileRepository// : IRepository
     {
 
         
@@ -19,8 +23,8 @@ namespace MarketMan.Celeb.Business.Core
             set;
             get;
         }
-
-        public CelebJsonFileRepository(ILogger<CelebJsonFileRepository> logger)
+ 
+        public CelebJsonFileRepository(ILogger<CelebJsonFileRepository> logger) 
         {
             this._logger = logger;
             Items = new List<CelebInfo>();
@@ -43,7 +47,7 @@ namespace MarketMan.Celeb.Business.Core
             //if (File.Exists(ConfigUtil.JSON_PATH)) File.Delete(ConfigUtil.JSON_PATH); 
             using FileStream writer = new FileStream(ConfigUtil.JSON_PATH, FileMode.Create);
             await System.Text.Json.JsonSerializer.SerializeAsync(writer, this.Items, new System.Text.Json.JsonSerializerOptions() { WriteIndented = true });
-            _logger.LogInformation($"IdbmRepository saved");
+            _logger?.LogInformation($"IdbmRepository saved");
         }
 
         public async void Load()
@@ -54,7 +58,7 @@ namespace MarketMan.Celeb.Business.Core
                 {
                     using FileStream reader = new FileStream(ConfigUtil.JSON_PATH, FileMode.Open);
                     this.Items = await System.Text.Json.JsonSerializer.DeserializeAsync<List<CelebInfo>>(reader);
-                    _logger.LogInformation($"IdbmRepository loaded with {this.Items.Count} items from cached file");
+                    _logger?.LogInformation($"IdbmRepository loaded with {this.Items.Count} items from cached file");
                 }
             }
             catch(Exception ex)
@@ -69,7 +73,7 @@ namespace MarketMan.Celeb.Business.Core
             var celeb = this.Items.FirstOrDefault(c => c.Key == key);
             if (celeb != null)
             {
-                _logger.LogInformation($"Removing celeb {celeb.Key} from IdbmRepository..");
+                _logger?.LogInformation($"Removing celeb {celeb.Key} from IdbmRepository..");
                 this.Items.Remove(celeb);                 
                 this.Save();
             }

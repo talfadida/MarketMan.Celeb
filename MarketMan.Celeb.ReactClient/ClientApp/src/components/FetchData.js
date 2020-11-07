@@ -21,7 +21,7 @@ export class FetchData extends Component {
             method: 'DELETE'            
         });
         this.setState({ loading: false, celebData: this.state.celebData.filter(p => p.key != key) });
-        this.render();
+        //this.render();
     }
 
     async resetCelebData() {
@@ -31,7 +31,7 @@ export class FetchData extends Component {
             method: 'POST'
         });
         this.populateCelebData();
-        this.render();
+        //this.render();
     }
 
     

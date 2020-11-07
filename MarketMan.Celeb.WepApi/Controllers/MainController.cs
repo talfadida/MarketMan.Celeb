@@ -28,9 +28,10 @@ namespace MarketMan.Celeb.WepApi.Controllers
 
         // GET: api/<MainController>
         [HttpGet]
-        public IEnumerable<CelebInfo> Get()
+        public async Task<IActionResult>  Get()
         {
-            return this._repo.GetAll() ;
+            var items = await this._repo.GetAll() ;
+            return Ok(items);
         }
  
         // POST api/<MainController>

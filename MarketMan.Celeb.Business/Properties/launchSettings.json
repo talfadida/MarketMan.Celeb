@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MarketMan.Celeb.Business": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

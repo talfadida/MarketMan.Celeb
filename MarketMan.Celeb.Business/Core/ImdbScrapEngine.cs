@@ -9,21 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Akka.Actor;
 
 namespace MarketMan.Celeb.Business.Core
 {
     //moving to actor model
     public class ImdbScrapEngine: IScrapEngine
     {
-        
+
+        private readonly IActorRef _repositoryActor;// = ActorSystemFactory.RepoActor;
         private readonly ILogger _logger;
-        private readonly IRepository _repo;
+        //private readonly IRepository _repo;
         HtmlWeb web = new HtmlWeb();
 
-        public ImdbScrapEngine(IRepository repo, ILogger<ImdbScrapEngine> logger)
+        public ImdbScrapEngine(ActorProvider repoActorProvider, ILogger<ImdbScrapEngine> logger)
         {
             this._logger = logger;             
-            this._repo = repo;
+            this._repositoryActor = repoActorProvider();
         }
 
         public  void GoScrap()
@@ -31,7 +33,7 @@ namespace MarketMan.Celeb.Business.Core
             _logger.LogInformation($"Starting Scrap process..");
             try
             {
-                this._repo.Reset();
+                _repositoryActor.Tell(new RepoCommand() { Action = RepoAction.Reset });// this._repo.Reset();
                 Stopwatch sw = Stopwatch.StartNew();
                 HtmlWeb web = new HtmlWeb();
                 var htmlDoc =  web.Load(ConfigUtil.IMDB_PAGE_LIST_URL);
@@ -46,7 +48,7 @@ namespace MarketMan.Celeb.Business.Core
                     {
                         var currentCount = Interlocked.Increment(ref count);                           
                         celeb.Key = currentCount;
-                        this._repo.Add(celeb);
+                        _repositoryActor.Tell(new RepoCommand() { Action = RepoAction.Add, Item = celeb });//  this._repo.Add(celeb);
                         _logger.LogInformation($"celeb #{currentCount} {celeb.Name} loaded");
                             
                     }
@@ -54,7 +56,7 @@ namespace MarketMan.Celeb.Business.Core
                 });
 
                 sw.Stop();
-                this._repo.Save();
+                _repositoryActor.Tell(new RepoCommand() { Action = RepoAction.Save });// his._repo.Save();
                 _logger.LogInformation($"Scrap process finished successfully. It took {sw.Elapsed.TotalSeconds} seconds");
             }
             catch (Exception ex)
