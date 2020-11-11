@@ -2,6 +2,7 @@
 using MarketMan.Celeb.Business.Core;
 using MarketMan.Celeb.Business.Utils;
 using MarketMan.Celeb.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,6 +17,7 @@ namespace MarketMan.Celeb.Business
 
         public ActorRepoImpl(ActorProvider repoActorProvider)
         {
+            System.Diagnostics.Trace.WriteLine("*** Init ActorRepoImpl() ***");            
             _repositoryActor = repoActorProvider();
         }
 

@@ -1,6 +1,7 @@
 using Akka.Actor;
 using Akka.DI.Core;
 using Akka.DI.Extensions.DependencyInjection;
+using Akka.Routing;
 using MarketMan.Celeb.Business;
 using MarketMan.Celeb.Business.Core;
 using MarketMan.Celeb.Business.Utils;
@@ -42,16 +43,21 @@ namespace MarketMan.Celeb.WepApi
                 var _actorSystem = ActorSystem.Create("engine");
                 _actorSystem.UseServiceProvider(sp);
                 return _actorSystem; 
-            });   
-            
-            services.AddSingleton<IRepository, ActorRepoImpl>();
+            });
+
+            services.AddSingleton<CelebJsonFileRepository, CelebJsonFileRepository>();
             services.AddSingleton<IScrapEngine, ImdbScrapEngine>();
-            services.AddSingleton<RepositoryActor, RepositoryActor>();
+            services.AddTransient<IRepository, ActorRepoImpl>();            
+            services.AddTransient<RepositoryActor, RepositoryActor>();
             //services.AddSingleton<RepositoryActor, RepositoryActor>(sp => 
             //{
             //    var actorSystem = sp.GetService<ActorSystem>();                 
             //    return actorSystem.ActorOf(actorSystem.DI().Props<RepositoryActor>());
             //});
+
+            //Akka.Routing.RoundRobinRoutingLogic rc = new RoundRobinRoutingLogic();
+             
+
 
             services.AddSingleton<ActorProvider>(sp => 
             {

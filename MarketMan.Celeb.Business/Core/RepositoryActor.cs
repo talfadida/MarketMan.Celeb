@@ -32,9 +32,10 @@ namespace MarketMan.Celeb.Business.Core
 
         private readonly CelebJsonFileRepository _repo;
 
-        public RepositoryActor(ILogger<CelebJsonFileRepository> logger)
-        {            
-            this._repo = new CelebJsonFileRepository(logger);               
+        public RepositoryActor(ILogger<CelebJsonFileRepository> logger, CelebJsonFileRepository celebJsonRepo)
+        {
+            System.Diagnostics.Trace.WriteLine("*** Init RepositoryActor() ***");
+            this._repo = celebJsonRepo;             
         }
 
         protected override void OnReceive(object message)
